@@ -13,9 +13,10 @@ from pathlib import Path
 from types import SimpleNamespace
 from typing import Iterable, Optional, Sequence
 
-PROJECT_ROOT = Path("/root/autodl-tmp/research/Embodied_Delta_Debugging")
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+CODE_ROOT = PROJECT_ROOT / "prototype" / "code"
+if str(CODE_ROOT) not in sys.path:
+    sys.path.insert(0, str(CODE_ROOT))
 
 from cost_summary import build_cost_summary_from_paths
 from run_risk_critic_large_eval import (

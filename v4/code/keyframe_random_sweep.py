@@ -96,10 +96,6 @@ def _translated_existing_path(raw: object) -> Optional[Path]:
     text = str(path)
     replacements = [
         (
-            "/root/autodl-tmp/research/Embodied_Delta_Debugging",
-            str(PROJECT_ROOT),
-        ),
-        (
             "/data2/yanghaoyun/research/Embodied_Delta_Debugging",
             str(PROJECT_ROOT),
         ),

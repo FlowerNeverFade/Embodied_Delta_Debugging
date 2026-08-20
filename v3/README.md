@@ -6,8 +6,8 @@ This directory freezes the current causal-v3 implementation and indexes the main
 
 - `code_snapshot/`: copied snapshot of the current v3-related Python modules.
 - `scripts/`: copied snapshot of the v3 runner scripts.
-- `outputs/`: symlinks to large v3 result directories, so videos/reports are not duplicated.
-- `docs/`: symlink to the original research report.
+- `outputs/`: local-only links/indexes to large v3 result directories; excluded from Git.
+- `docs/`: local-only link to the original research report; the tracked copy is in the top-level `docs/` directory.
 
 ## Important Outputs
 
@@ -25,6 +25,6 @@ This directory freezes the current causal-v3 implementation and indexes the main
 ## Notes
 
 This is an archival/index workspace for v3. The heavy outputs remain in
-`model_datasets/pi0fast-libero-libero_10/outputs/` and are referenced here by symlink.
+`model_datasets/pi0fast-libero-libero_10/outputs/` and are referenced locally by symlink.
 Future causal-v4 work should be created in a separate sibling directory, `v4/`, rather than
 modifying this v3 snapshot in place.

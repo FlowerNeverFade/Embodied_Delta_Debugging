@@ -3,6 +3,7 @@ set -euo pipefail
 
 RUN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$RUN_DIR/../.." && pwd)"
+CODE_ROOT="$PROJECT_ROOT/prototype/code"
 source "$RUN_DIR/config.env"
 
 OUTPUT_DIR="${PILOT_OUTPUT_DIR:-$RUN_DIR/outputs/risk_repair_curriculum_v2_pilot40_20260526}"
@@ -51,7 +52,7 @@ fi
 
 env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY -u NO_PROXY \
     -u http_proxy -u https_proxy -u all_proxy -u no_proxy \
-  /root/autodl-tmp/envs/libero38/bin/python -u "$PROJECT_ROOT/run_risk_critic_large_eval.py" \
+  /root/autodl-tmp/envs/libero38/bin/python -u "$CODE_ROOT/run_risk_critic_large_eval.py" \
     --output-dir "$OUTPUT_DIR" \
     --report-dir "$REPORT_DIR" \
     --log-dir "$LOG_DIR" \

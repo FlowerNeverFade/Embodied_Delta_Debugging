@@ -41,15 +41,13 @@ from custom_tasks import registry as custom_tasks
 from edd_types import CandidateSlice
 
 
-DEFAULT_OUTPUT = Path(
-    "/root/autodl-tmp/research/Embodied_Delta_Debugging/outputs/pi05_natural_failure_probe.json"
-)
 PROJECT_ROOT = Path(
     os.environ.get(
         "EDD_PROJECT_ROOT",
         str(Path(__file__).resolve().parents[2]),
     )
 )
+DEFAULT_OUTPUT = PROJECT_ROOT / "outputs" / "pi05_natural_failure_probe.json"
 OPENPI_PYTHON = Path(os.environ.get("OPENPI_PYTHON", sys.executable))
 DEFAULT_DEMO_DATASET_ROOT = Path(
     "/root/autodl-tmp/research/VLA_SKILL/datasets/HuggingFaceVLA_libero"
@@ -1512,7 +1510,7 @@ def _demo_repair_actions(
     eef_arg = ",".join(str(float(x)) for x in eef[:3])
     cmd = [
         str(OPENPI_PYTHON),
-        str(PROJECT_ROOT / "libero_demo_repair_source.py"),
+        str(CODE_ROOT / "libero_demo_repair_source.py"),
         "--dataset-root",
         str(dataset_root),
         "--task-language",

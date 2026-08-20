@@ -8,9 +8,8 @@ from typing import Optional, Sequence
 from risk_critic_export import CAUSAL_SCHEMAS, _repair_pass
 
 
-DEFAULT_OUTPUTS_ROOT = Path(
-    "/root/autodl-tmp/research/Embodied_Delta_Debugging/outputs"
-)
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_OUTPUTS_ROOT = PROJECT_ROOT / "outputs"
 DEFAULT_OUTPUT = DEFAULT_OUTPUTS_ROOT / "repair_sft_admission.json"
 
 

@@ -7,7 +7,6 @@ from typing import Dict, List, Optional, Sequence, Tuple
 from causal_failure_predicates import GoalPredicate, StateSnapshot
 
 
-PROJECT_ROOT = Path("/root/autodl-tmp/research/Embodied_Delta_Debugging")
 SUITE_NAME = "libero_long_breakfast_cleanup"
 TASK_NAME = "KITCHEN_LONG_HORIZON_BREAKFAST_CLEANUP"
 TASK_LANGUAGE = (
@@ -16,8 +15,7 @@ TASK_LANGUAGE = (
     "the stove, put both moka pots on the stove, then turn the stove off."
 )
 BDDL_PATH = (
-    PROJECT_ROOT
-    / "custom_tasks"
+    Path(__file__).resolve().parent
     / "long_horizon_breakfast_cleanup"
     / f"{TASK_NAME}.bddl"
 )

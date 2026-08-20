@@ -3,7 +3,7 @@ set -euo pipefail
 
 unset HTTP_PROXY HTTPS_PROXY ALL_PROXY NO_PROXY http_proxy https_proxy all_proxy no_proxy
 
-ROOT="/root/autodl-tmp/research/Embodied_Delta_Debugging"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 V4="$ROOT/v4"
 CODE="$V4/code"
 PY="/root/autodl-tmp/envs/libero38/bin/python"

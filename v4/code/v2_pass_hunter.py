@@ -9,7 +9,7 @@ from typing import Optional, Sequence
 from risk_critic_export import CAUSAL_SCHEMAS, CAUSAL_V3_SCHEMA, _strict_causal_pass
 
 
-PROJECT_ROOT = Path("/root/autodl-tmp/research/Embodied_Delta_Debugging")
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DEFAULT_SCAN_ROOT = PROJECT_ROOT / "model_datasets"
 DEFAULT_OUTPUT_DIR = PROJECT_ROOT / "outputs" / "v2_pass_search_20260526"
 

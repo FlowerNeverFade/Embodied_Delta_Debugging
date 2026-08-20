@@ -9,10 +9,9 @@ import numpy as np
 from causal_failure_predicates import GoalPredicate, StateSnapshot
 
 
-PROJECT_ROOT = Path("/root/autodl-tmp/research/Embodied_Delta_Debugging")
 SUITE_NAME = "libero_long_breakfast_curriculum_v2"
 LAYOUT_REVISION = "v2.1-clean-stage01"
-TASK_FOLDER = PROJECT_ROOT / "custom_tasks" / "long_breakfast_curriculum_v2"
+TASK_FOLDER = Path(__file__).resolve().parent / "long_breakfast_curriculum_v2"
 DEFAULT_NUM_INIT_STATES = 50
 DEFAULT_MAX_STEPS = 820
 ORDER_VALID_LABEL = "Stageorder valid_sequence_so_far"

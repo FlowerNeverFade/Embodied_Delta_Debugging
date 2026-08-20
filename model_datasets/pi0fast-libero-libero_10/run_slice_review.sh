@@ -3,6 +3,7 @@ set -euo pipefail
 
 RUN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$RUN_DIR/../.." && pwd)"
+CODE_ROOT="$PROJECT_ROOT/prototype/code"
 source "$RUN_DIR/config.env"
 
 REPORT_DIR="${REVIEW_REPORT_DIR:-$RUN_DIR/outputs/risk_critic_ultra_video_causal_v2_20260525/reports}"
@@ -20,7 +21,7 @@ cd "$PROJECT_ROOT"
 
 env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY -u NO_PROXY \
     -u http_proxy -u https_proxy -u all_proxy -u no_proxy \
-  /root/autodl-tmp/envs/libero38/bin/python -u "$PROJECT_ROOT/slice_review_export.py" \
+  /root/autodl-tmp/envs/libero38/bin/python -u "$CODE_ROOT/slice_review_export.py" \
     --report-dir "$REPORT_DIR" \
     --output-dir "$OUTPUT_DIR" \
     --task-suite-name "$DATASET_NAME" \

@@ -11,9 +11,8 @@ from risk_critic_export import _strict_causal_pass
 from risk_critic_export import CAUSAL_SCHEMAS
 
 
-DEFAULT_OUTPUTS_ROOT = Path(
-    "/root/autodl-tmp/research/Embodied_Delta_Debugging/outputs"
-)
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_OUTPUTS_ROOT = PROJECT_ROOT / "outputs"
 DEFAULT_SUMMARY_PATH = DEFAULT_OUTPUTS_ROOT / "cost_summary.json"
 
 

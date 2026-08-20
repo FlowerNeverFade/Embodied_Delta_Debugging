@@ -6,9 +6,8 @@ from pathlib import Path
 from typing import Iterable, Optional, Sequence
 
 
-DEFAULT_OUTPUTS_ROOT = Path(
-    "/root/autodl-tmp/research/Embodied_Delta_Debugging/outputs"
-)
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_OUTPUTS_ROOT = PROJECT_ROOT / "outputs"
 DEFAULT_OUTPUT = DEFAULT_OUTPUTS_ROOT / "risk_critic_v1.jsonl"
 CAUSAL_V2_SCHEMA = "shed-cfs-causal-v2-split-repair"
 CAUSAL_V3_SCHEMA = "shed-cfs-causal-v3-multimodal"

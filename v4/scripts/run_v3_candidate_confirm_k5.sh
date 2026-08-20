@@ -3,6 +3,7 @@ set -euo pipefail
 
 RUN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$RUN_DIR/../.." && pwd)"
+CODE_ROOT="$PROJECT_ROOT/v4/code"
 source "$RUN_DIR/config.env"
 
 CONFIRM_OUTPUT_DIR="${CONFIRM_OUTPUT_DIR:-$RUN_DIR/outputs/risk_critic_ultra_video_causal_v3_confirm_k5_20260527}"
@@ -204,7 +205,7 @@ worker() {
   env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY -u NO_PROXY \
       -u http_proxy -u https_proxy -u all_proxy -u no_proxy \
       HF_HUB_OFFLINE=1 TRANSFORMERS_OFFLINE=1 \
-      /root/miniconda3/bin/python "$PROJECT_ROOT/serve_lerobot_pi0fast_policy.py" \
+      /root/miniconda3/bin/python "$CODE_ROOT/serve_lerobot_pi0fast_policy.py" \
         --port "$port" \
         --policy-dir "$POLICY_DIR" \
         --device "$PYTORCH_DEVICE" \
@@ -238,7 +239,7 @@ worker() {
     "${timeout_cmd[@]}" env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY -u NO_PROXY \
           -u http_proxy -u https_proxy -u all_proxy -u no_proxy \
           CUDA_VISIBLE_DEVICES="$gpu" MUJOCO_EGL_DEVICE_ID="$gpu" MUJOCO_GL=egl PYOPENGL_PLATFORM=egl \
-        /root/autodl-tmp/envs/libero38/bin/python "$PROJECT_ROOT/pi05_natural_failure_probe.py" \
+        /root/autodl-tmp/envs/libero38/bin/python "$CODE_ROOT/pi05_natural_failure_probe.py" \
           --policy-host 127.0.0.1 \
           --policy-port "$port" \
           --policy-config "$POLICY_CONFIG" \

@@ -3,6 +3,7 @@ set -euo pipefail
 
 RUN_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_ROOT="$(cd "$RUN_DIR/../.." && pwd)"
+CODE_ROOT="$PROJECT_ROOT/v3/code_snapshot"
 source "$RUN_DIR/config.env"
 
 CONFIRM_OUTPUT_DIR="${CONFIRM_OUTPUT_DIR:-$RUN_DIR/outputs/risk_critic_ultra_video_causal_v3_confirm_k5_runner_20260527}"
@@ -69,7 +70,7 @@ run_case() {
   set +e
   env -u HTTP_PROXY -u HTTPS_PROXY -u ALL_PROXY -u NO_PROXY \
       -u http_proxy -u https_proxy -u all_proxy -u no_proxy \
-    /root/autodl-tmp/envs/libero38/bin/python -u "$PROJECT_ROOT/run_risk_critic_large_eval.py" \
+    /root/autodl-tmp/envs/libero38/bin/python -u "$CODE_ROOT/run_risk_critic_large_eval.py" \
       --output-dir "$case_dir" \
       --report-dir "$case_dir/reports" \
       --log-dir "$case_dir/logs" \

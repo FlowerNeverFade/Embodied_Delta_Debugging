@@ -3,7 +3,7 @@ set -euo pipefail
 
 unset HTTP_PROXY HTTPS_PROXY ALL_PROXY NO_PROXY http_proxy https_proxy all_proxy no_proxy
 
-ROOT="/root/autodl-tmp/research/Embodied_Delta_Debugging"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/../.." && pwd)"
 V4="$ROOT/v4"
 CODE="$V4/code"
 PY="/root/autodl-tmp/envs/libero38/bin/python"
@@ -47,14 +47,14 @@ wait_port() {
 }
 
 generate_candidates() {
-  "$PY" - "$OUT" "$MAX_CANDIDATES" <<'PY'
+  "$PY" - "$OUT" "$MAX_CANDIDATES" "$ROOT" <<'PY'
 import json
 import pathlib
 import sys
 
 out = pathlib.Path(sys.argv[1])
 max_candidates = int(sys.argv[2])
-root = pathlib.Path("/root/autodl-tmp/research/Embodied_Delta_Debugging/model_datasets/pi0fast-libero-libero_10/outputs")
+root = pathlib.Path(sys.argv[3]) / "model_datasets/pi0fast-libero-libero_10/outputs"
 items = {}
 for path in root.rglob("*_causal_v*.json"):
     if "/reports/" not in str(path):

@@ -1,51 +1,53 @@
 # Embodied Delta Debugging
 
 SHED-CFS research code for finding and validating minimal causal slices in
-failed embodied-AI trajectories. The project contains the original prototype,
-the frozen causal-v3 snapshot, and the causal-v4 implementation.
+failed embodied-AI trajectories.
 
-## Repository Contents
+## Start Here
 
-- Root Python modules and `test/`: the initial prototype and smoke tests.
-- `model_datasets/`: experiment launch and process-management scripts (without
-  model data, local configuration, or generated outputs).
-- `v3/code_snapshot/`: the archived causal-v3 implementation.
-- `v4/code/`, `v4/test/`, and `v4/scripts/`: the causal-v4 implementation,
-  tests, and launch scripts.
-- `*.md`, `*.docx`, `1.png`, and `1.pptx`: research notes and presentation
-  artifacts.
+| Area | Purpose |
+| --- | --- |
+| [`v4/`](v4/) | Current causal-v4 implementation and tests |
+| [`v3/`](v3/) | Frozen causal-v3 archive |
+| [`prototype/`](prototype/) | Original prototype, utilities, and tests |
+| [`docs/`](docs/) | Research reports, slides, and diagrams |
+| [`model_datasets/`](model_datasets/) | Experiment launch/status scripts only |
 
-Large downloaded assets and generated results are intentionally not tracked in
-Git. The local workspace contains model checkpoints, datasets, videos, replay
-outputs, caches, logs, and other artifacts that are unsuitable for a normal
-GitHub repository. Recreate those assets with the project-specific download
-scripts, or provide their paths through the command-line options documented in
-the scripts.
+The large local assets under `dataset/`, `model/`, `model_datasets/*/outputs/`,
+and `outputs/` are intentionally excluded from Git. They contain downloaded
+datasets, model checkpoints, videos, replay results, caches, and machine-local
+configuration. Recreate or mount them separately before running simulator or
+policy experiments.
 
 ## Quick Checks
 
-Run the lightweight tests from an environment that provides the project
-dependencies:
+Prototype unit tests:
 
 ```bash
-python -m py_compile *.py
-python -m pytest -q test
+PYTHONPATH=prototype/code python -m pytest -q prototype/tests
 ```
 
-For the causal-v4 snapshot:
+Current v4 unit tests:
 
 ```bash
-PYTHONPATH=v4/code python -m py_compile v4/code/*.py
-PYTHONPATH=v4/code python -m pytest -q v4/test
+PYTHONPATH=v4/code:$OPENPI_CLIENT_SRC python -m pytest -q v4/test
+```
+
+Syntax-only checks that do not need simulator assets:
+
+```bash
+python -m compileall -q prototype/code v4/code
+find prototype v3 v4 -name '*.sh' -exec bash -n {} +
 ```
 
 The simulator and policy-server probes require external LIBERO/OpenPI/VLA
-installations and locally downloaded checkpoints; they are not bundled here.
+installations and locally downloaded checkpoints. See the README in each
+implementation directory for details.
 
-## Notes
+## Project Notes
 
-Several legacy scripts retain absolute paths from the original research
-machine. Treat those defaults as examples and override them with the scripts'
-CLI arguments or adapt them to the local environment before running.
+The prototype and v3 snapshot retain historical research defaults where they
+refer to external datasets or environments. v4 resolves its project code from
+the repository layout and accepts `EDD_PROJECT_ROOT` for a custom checkout.
 
 No software license has been specified for this research snapshot yet.

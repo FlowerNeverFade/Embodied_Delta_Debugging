@@ -9,12 +9,9 @@ from typing import Optional, Sequence
 import numpy as np
 
 
-DEFAULT_DATASET = Path(
-    "/root/autodl-tmp/research/Embodied_Delta_Debugging/outputs/risk_critic_v1.jsonl"
-)
-DEFAULT_OUTPUT = Path(
-    "/root/autodl-tmp/research/Embodied_Delta_Debugging/outputs/risk_critic_metrics.json"
-)
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+DEFAULT_DATASET = PROJECT_ROOT / "outputs" / "risk_critic_v1.jsonl"
+DEFAULT_OUTPUT = PROJECT_ROOT / "outputs" / "risk_critic_metrics.json"
 
 
 def _read_jsonl(path: Path) -> list:
