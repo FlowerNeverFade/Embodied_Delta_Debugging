@@ -1,0 +1,10 @@
+{
+  "version": "causal-v4",
+  "schema": "shed-cfs-causal-v4-global-multimodal",
+  "purpose": "Isolated global multimodal bounded-minimal causal set implementation.",
+  "model_dataset": "pi0fast-libero-libero_10",
+  "created_from": "/root/autodl-tmp/research/Embodied_Delta_Debugging/v3",
+  "v3_snapshot_unchanged": true,
+  "default_ports": [8060, 8061, 8062],
+  "top_k_minimal_sets": 5
+}

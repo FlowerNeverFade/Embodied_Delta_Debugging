@@ -1,0 +1,165 @@
+(define (problem LIBERO_Kitchen_Tabletop_Manipulation)
+  (:domain robosuite)
+  (:language Open the microwave, put the yellow and white mug inside it, close the microwave, open the bottom drawer, put the black bowl inside it, close the drawer, turn on the stove, put both moka pots on the stove, then turn the stove off.)
+    (:regions
+      (microwave_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.31 0.29 -0.29 0.31)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (white_cabinet_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.23 0.29 0.25 0.31)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (flat_stove_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.25 -0.25 -0.23 -0.23)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (white_yellow_mug_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.03 -0.04 0.02 0.01)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (akita_black_bowl_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.10 -0.10 0.15 -0.05)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (moka_pot_left_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (-0.08 0.22 -0.03 0.27)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (moka_pot_front_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.04 0.04 0.09 0.09)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (porcelain_mug_distractor_init_region
+          (:target kitchen_table)
+          (:ranges (
+              (0.21 -0.28 0.26 -0.23)
+            )
+          )
+          (:yaw_rotation (
+              (0.0 0.0)
+            )
+          )
+      )
+      (top_side
+          (:target microwave_1)
+      )
+      (heating_region
+          (:target microwave_1)
+      )
+      (top_side
+          (:target white_cabinet_1)
+      )
+      (top_region
+          (:target white_cabinet_1)
+      )
+      (middle_region
+          (:target white_cabinet_1)
+      )
+      (bottom_region
+          (:target white_cabinet_1)
+      )
+      (cook_region
+          (:target flat_stove_1)
+      )
+    )
+
+  (:fixtures
+    kitchen_table - kitchen_table
+    microwave_1 - microwave
+    white_cabinet_1 - white_cabinet
+    flat_stove_1 - flat_stove
+  )
+
+  (:objects
+    white_yellow_mug_1 - white_yellow_mug
+    akita_black_bowl_1 - akita_black_bowl
+    moka_pot_1 moka_pot_2 - moka_pot
+    porcelain_mug_1 - porcelain_mug
+  )
+
+  (:obj_of_interest
+    microwave_1
+    white_yellow_mug_1
+    white_cabinet_1
+    akita_black_bowl_1
+    flat_stove_1
+    moka_pot_1
+    moka_pot_2
+  )
+
+  (:init
+    (On microwave_1 kitchen_table_microwave_init_region)
+    (On white_cabinet_1 kitchen_table_white_cabinet_init_region)
+    (On flat_stove_1 kitchen_table_flat_stove_init_region)
+    (On white_yellow_mug_1 kitchen_table_white_yellow_mug_init_region)
+    (On akita_black_bowl_1 kitchen_table_akita_black_bowl_init_region)
+    (On moka_pot_1 kitchen_table_moka_pot_left_init_region)
+    (On moka_pot_2 kitchen_table_moka_pot_front_init_region)
+    (On porcelain_mug_1 kitchen_table_porcelain_mug_distractor_init_region)
+    (Open microwave_1)
+    (Open white_cabinet_1_bottom_region)
+  )
+
+  (:goal
+    (And
+      (In white_yellow_mug_1 microwave_1_heating_region)
+      (Close microwave_1)
+      (In akita_black_bowl_1 white_cabinet_1_bottom_region)
+      (Close white_cabinet_1_bottom_region)
+      (On moka_pot_1 flat_stove_1_cook_region)
+      (On moka_pot_2 flat_stove_1_cook_region)
+      (Turnoff flat_stove_1)
+    )
+  )
+
+)

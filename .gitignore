@@ -1,0 +1,61 @@
+# Python bytecode and local test caches
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.DS_Store
+.idea/
+.vscode/
+
+# Local environments and machine-specific configuration
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+**/config.env
+.libero_config/
+
+# Downloaded datasets, model checkpoints, and generated experiment outputs
+dataset/
+model/
+outputs/
+v3/outputs/
+v4/outputs/
+**/outputs/
+model_datasets/**/policy_overlay/
+model_datasets/**/tokenizers/
+v3/docs/
+v4/docs/
+
+# Common heavyweight ML, dataset, and video artifacts
+*.safetensors
+*.ckpt
+*.pt
+*.pth
+*.onnx
+*.h5
+*.hdf5
+*.parquet
+*.npy
+*.npz
+*.mp4
+*.avi
+*.mov
+
+# Runtime logs and process markers
+*.log
+*.pid
+*.status
+*.tmp
+*.swp
+
+# Local failure lists and generated manifests
+vlabench_assets_manifest.txt
+vlabench_assets_failed.txt

@@ -1,0 +1,8 @@
+{
+  "version": "causal-v3",
+  "schema": "shed-cfs-causal-v3-multimodal",
+  "purpose": "Frozen snapshot and artifact index before starting causal-v4.",
+  "model_dataset": "pi0fast-libero-libero_10",
+  "created_from": "/root/autodl-tmp/research/Embodied_Delta_Debugging",
+  "heavy_outputs_are_symlinks": true
+}
