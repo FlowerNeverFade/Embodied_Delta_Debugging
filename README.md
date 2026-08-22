@@ -10,8 +10,11 @@ failed embodied-AI trajectories.
 | [`v4/`](v4/) | Current causal-v4 implementation and tests |
 | [`v3/`](v3/) | Frozen causal-v3 archive |
 | [`prototype/`](prototype/) | Original prototype, utilities, and tests |
-| [`docs/`](docs/) | Research reports, slides, and diagrams |
 | [`model_datasets/`](model_datasets/) | Experiment launch/status scripts only |
+
+Project-specific usage notes live in the README inside each implementation or
+experiment directory. Research reports, presentations, and other meeting
+materials are intentionally not tracked in this repository.
 
 The large local assets under `dataset/`, `model/`, `model_datasets/*/outputs/`,
 and `outputs/` are intentionally excluded from Git. They contain downloaded

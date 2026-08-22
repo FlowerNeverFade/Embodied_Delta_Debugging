@@ -7,7 +7,6 @@ This directory freezes the current causal-v3 implementation and indexes the main
 - `code_snapshot/`: copied snapshot of the current v3-related Python modules.
 - `scripts/`: copied snapshot of the v3 runner scripts.
 - `outputs/`: local-only links/indexes to large v3 result directories; excluded from Git.
-- `docs/`: local-only link to the original research report; the tracked copy is in the top-level `docs/` directory.
 
 ## Important Outputs
 

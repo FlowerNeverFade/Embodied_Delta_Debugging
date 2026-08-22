@@ -27,7 +27,6 @@ the frozen `v3/` snapshot and it uses separate output directories and ports.
 - `scripts/`: v4 launch scripts using ports `8060-8062`.
 - `test/`: v4-specific unit tests.
 - `outputs/`: local-only links/indexes to large result directories; excluded from Git.
-- `docs/`: local-only link to the original research report; the tracked copy is in the top-level `docs/` directory.
 
 ## Quick Checks
 
